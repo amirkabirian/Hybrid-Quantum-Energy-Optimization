@@ -46,9 +46,3 @@ Penalties $\lambda_1, \lambda_2 \gg 0$ guarantee that hard physical constraints 
 The QUBO Hamiltonian $H_C$ is mapped to Pauli-$Z$ operators. The parameterized quantum state $|\boldsymbol{\gamma}, \boldsymbol{\beta}\rangle$ is constructed by applying alternating cost and mixer layers:
 
 $$|\boldsymbol{\gamma}, \boldsymbol{\beta}\rangle = \prod_{k=1}^p e^{-i \beta_k H_B} e^{-i \gamma_k H_C} |+\rangle^{\otimes n}$$
-
----
-
-## License
-
-Copyright (c) 2026 Amir Kabirian. All rights reserved.
