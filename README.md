@@ -43,6 +43,8 @@ $$\mathcal{H}_{\text{constraint}} = \lambda_1 \sum_{m} \left(1 - \sum_{t} x_{m,t
 
 The hybrid framework successfully reduces heavy industrial energy expenses compared to conventional baseline allocations by shifting operational loads to optimal tariff windows.
 
+![Benchmark Results](benchmark_result.png)
+
 ---
 
 ## 📂 Repository Structure
@@ -56,5 +58,6 @@ Hybrid-Quantum-Energy-Optimization/
 ├── notebooks/
 │   └── Hybrid_Quantum_Energy_Optimization_Master.ipynb  # Complete master notebook
 │
+├── benchmark_result.png                  # High-resolution performance visualization chart
 ├── LICENSE                               # Proprietary All Rights Reserved License
 └── README.md                             # Project documentation
