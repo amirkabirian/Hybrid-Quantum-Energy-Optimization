@@ -23,10 +23,15 @@ Tariff profiles, demand-peak tiers, and capacity constraints are benchmarked usi
 Execute the entire pipeline sequentially inside free Google Colab environments:
 
 * **01_industrial_qubo_formulation.ipynb**  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/01_industrial_qubo_formulation.ipynb)  
   *Models multi-industry presets, Iranian industrial tariff structures, and constructs the QUBO cost matrix Q.*
+
 * **02_qaoa_hybrid_solver.ipynb**  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/02_qaoa_hybrid_solver.ipynb)  
   *Builds the QAOA ansatz circuit and updates variational parameters via classical optimizers (COBYLA).*
+
 * **03_energy_benchmark_demo.ipynb**  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/03_energy_benchmark_demo.ipynb)  
   *Benchmarks QAOA solution probability against classical heuristics and visualizes energy cost savings.*
 
 ---
