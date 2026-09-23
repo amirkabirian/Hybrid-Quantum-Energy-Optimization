@@ -1,53 +1,32 @@
 # Hybrid-Quantum-Energy-Optimization
 
-![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Qiskit 1.0+](https://img.shields.io/badge/Qiskit-1.0+-purple.svg)](https://qiskit.org/)
+[![License: Proprietary](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Qiskit](https://img.shields.io/badge/Qiskit-1.x-purple.svg)](https://qiskit.org/)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/Hybrid_Quantum_Energy_Optimization_Master.ipynb)
 
-## Executive Summary & Industrial Motivation
-
-Industrial energy management faces severe decision-making bottlenecks when scheduling high-power equipment during peak-demand hours. Traditional mathematical programming methods (e.g., MILP) scale exponentially ($O(2^N)$) as the number of machines, operational constraints, and dynamic energy pricing tiers expand.
-
-**Hybrid-Quantum-Energy-Optimization** offers a NISQ-friendly, variational framework that maps industrial energy load scheduling onto a **Quadratic Unconstrained Binary Optimization (QUBO)** formulation. By utilizing the **Quantum Approximate Optimization Algorithm (QAOA)** in a closed-loop hybrid setup, this framework computes near-optimal schedule topologies that minimize operational energy costs while adhering strictly to physical grid constraints and real-world industrial tariff structures.
+A research-grade hybrid quantum-classical framework designed to optimize heavy industrial energy load scheduling (Steel Arc Furnaces, Petrochemical Compressors, etc.) using the Quantum Approximate Optimization Algorithm (QAOA) coupled with official tariff structures from the Iran Grid Management Company (IGMC).
 
 ---
 
-## Data Sources & Benchmark Policy
+## 🚀 Quick Start / Run in Google Colab
 
-Tariff profiles, demand-peak tiers, and capacity constraints are benchmarked using official parameters from the **Iran Grid Management Company (IGMC)** and the **Ministry of Energy**, featuring customizable operational presets for heavy metallurgy (steel arc furnaces), petrochemical processing units, and modular automated manufacturing lines.
+You can run the complete end-to-end pipeline (from data ingestion and QUBO formulation to QAOA execution and cost benchmarking) directly in your browser using Google Colab:
 
----
-
-## 📌 Interactive Notebooks (Run in Google Colab)
-
-Execute the entire pipeline sequentially inside free Google Colab environments:
-
-* **01_industrial_qubo_formulation.ipynb**  
-  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/01_industrial_qubo_formulation.ipynb)  
-  *Models multi-industry presets, Iranian industrial tariff structures, and constructs the QUBO cost matrix Q.*
-
-* **02_qaoa_hybrid_solver.ipynb**  
-  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/02_qaoa_hybrid_solver.ipynb)  
-  *Builds the QAOA ansatz circuit and updates variational parameters via classical optimizers (COBYLA).*
-
-* **03_energy_benchmark_demo.ipynb**  
-  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/03_energy_benchmark_demo.ipynb)  
-  *Benchmarks QAOA solution probability against classical heuristics and visualizes energy cost savings.*
+* **[Open Master Notebook in Google Colab](https://colab.research.google.com/github/amirkabirian/Hybrid-Quantum-Energy-Optimization/blob/main/notebooks/Hybrid_Quantum_Energy_Optimization_Master.ipynb)**
 
 ---
 
-## Mathematical Formulation
+## 📂 Repository Structure
 
-### 1. QUBO Energy Cost Mapping
-The industrial energy scheduling objective is mapped into a binary vector $x \in \{0, 1\}^n$, where $x_{i,t} = 1$ denotes machine $i$ operating during time interval $t$:
-
-$$\min_{x \in \{0,1\}^n} H(x) = x^T Q x + c^T x$$
-
-$$\text{where } Q = Q_{\text{tariff}} + \lambda_1 Q_{\text{interlock}} + \lambda_2 Q_{\text{capacity}}$$
-
-Penalties $\lambda_1, \lambda_2 \gg 0$ guarantee that hard physical constraints are preserved in the ground state energy topology.
-
-### 2. Quantum Approximate Optimization Algorithm (QAOA)
-The QUBO Hamiltonian $H_C$ is mapped to Pauli-$Z$ operators. The parameterized quantum state $|\boldsymbol{\gamma}, \boldsymbol{\beta}\rangle$ is constructed by applying alternating cost and mixer layers:
-
-$$|\boldsymbol{\gamma}, \boldsymbol{\beta}\rangle = \prod_{k=1}^p e^{-i \beta_k H_B} e^{-i \gamma_k H_C} |+\rangle^{\otimes n}$$
+```text
+Hybrid-Quantum-Energy-Optimization/
+│
+├── data/
+│   └── iran_industrial_energy_data.csv   # Official IGMC tariff and peak load structures
+│
+├── notebooks/
+│   └── Hybrid_Quantum_Energy_Optimization_Master.ipynb  # Complete master notebook
+│
+├── LICENSE                               # Proprietary All Rights Reserved License
+└── README.md                             # Project documentation
