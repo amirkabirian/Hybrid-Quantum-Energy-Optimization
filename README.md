@@ -34,8 +34,14 @@ $$\mathcal{H}_{\text{constraint}} = \lambda_1 \sum_{m} \left(1 - \sum_{t} x_{m,t
 
 ### 3. Quantum Translation & Hybrid Solver
 * **QUBO to Ising Mapping:** The formulated QUBO matrix $Q$ is mapped into a weighted sum of Pauli-$Z$ operators (Ising Hamiltonian) via SparsePauliOp.
-* **QAOA Circuit Execution:** The parameterized quantum circuit (`QAOAAnsatz`) is executed on the Qiskit `AerSimulator` backend.
+* **QAOA Circuit Execution:** The parameterized quantum circuit (`QAOAAnsatz`) is executed on the Qiskit `AerSimulator` backend with proper circuit transpilation.
 * **Classical Optimization Loop:** The hybrid loop utilizes SciPy's `COBYLA` optimizer to iteratively update variational parameters $(\gamma, \beta)$ until convergence to the optimal cost configuration.
+
+---
+
+## 📊 Results & Performance Benchmark
+
+The hybrid framework successfully reduces heavy industrial energy expenses compared to conventional baseline allocations by shifting operational loads to optimal tariff windows.
 
 ---
 
